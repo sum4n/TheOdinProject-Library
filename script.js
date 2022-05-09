@@ -28,7 +28,7 @@ for (let i = 1; i <= 9; i++){
 
 // Dummy data ends
 
-myLibrary.forEach( (book) => console.log(book.title, book.author, book.pages));
+// myLibrary.forEach( (book) => console.log(book.title, book.author, book.pages));
 // console.table(myLibrary);
 
 function createBook () {
@@ -71,4 +71,14 @@ function showBooks(book) {
 
     mainContainer.appendChild(bookCardDiv);
     
+}
+
+displayBooks();
+
+const newBookBtn = document.getElementById("new-book-btn");
+
+newBookBtn.addEventListener('click', showAddBookForm);
+
+function showAddBookForm() {
+    //
 }

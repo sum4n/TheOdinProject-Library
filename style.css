@@ -3,6 +3,72 @@
     text-align: center;
 }
 
+button {
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(255, 192, 111);
+    width: 150px;
+    height: 30px;
+    font-weight: bold;
+
+}
+
+div.button {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    padding-top: 2rem;
+    /* border: 1px solid red; */
+    height: 400px;
+    /* width: 400px; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    justify-items: center;
+}
+
+form > div {
+    /* border: 1px solid red; */
+    width: 600px;
+    /* height: 40px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 400px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    outline: 1px solid rgb(255, 196, 0);
+    padding: 0px 8px;
+    
+    /* border: 2px solid blue; */
+}
+
+input:focus {
+    box-shadow: 0px 0px 8px rgba(95, 95, 95, 0.527);
+}
+
+label {
+    width: 150px;
+    /* border: 1px solid blue; */
+}
+
+#radio label {
+    width: 80px;
+}
+
+#radio input {
+    width: 20px;
+    outline: none;
+}
+
 .main-container {
     padding: 3rem;
     
