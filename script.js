@@ -87,8 +87,10 @@ function showAddBookForm() {
     
     if(formDiv.hidden == false) {
         formDiv.hidden = true;
+        newBookBtn.hidden = false;
     } else {
         formDiv.hidden = false;
+        newBookBtn.hidden = true;
     }
 }
 
