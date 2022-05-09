@@ -28,8 +28,8 @@ for (let i = 1; i <= 9; i++){
 
 // Dummy data ends
 
-// myLibrary.forEach( (book) => console.log(book));
-console.table(myLibrary);
+myLibrary.forEach( (book) => console.log(book.title, book.author, book.pages));
+// console.table(myLibrary);
 
 function createBook () {
     let bookTitle = prompt("Title: ");
@@ -39,4 +39,36 @@ function createBook () {
     let book = new Book(bookTitle, bookAuthor, bookPages);
 
     return book;
+}
+
+function displayBooks() {
+    myLibrary.forEach(showBooks);
+}
+
+
+function showBooks(book) {
+
+    const mainContainer = document.querySelector(".main-container");
+
+    const bookCardDiv = document.createElement("div");
+    bookCardDiv.classList.add("book-card")
+
+    const bookTitleP = document.createElement("p");
+    bookTitleP.classList.add("book-title");
+    bookTitleP.textContent = book.title;
+
+    const bookAuthorP = document.createElement("p");
+    bookAuthorP.classList.add("book-author");
+    bookAuthorP.textContent = book.author;
+
+    const bookPagesP = document.createElement("p");
+    bookPagesP.classList.add("pages");
+    bookPagesP.textContent = book.pages;
+
+    bookCardDiv.appendChild(bookTitleP);
+    bookCardDiv.appendChild(bookAuthorP);
+    bookCardDiv.appendChild(bookPagesP);
+
+    mainContainer.appendChild(bookCardDiv);
+    
 }
