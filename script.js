@@ -18,13 +18,13 @@ function addBookToLibrary() {
 
 // Dummy data
 
-for (let i = 1; i <= 9; i++){
-    let bookName = "Book" + i;
-    let author = "Author" + i;
-    let pages = i * 100;
-    let book = new Book(bookName, author, pages);
-    myLibrary.push(book);
-}
+// for (let i = 1; i <= 9; i++){
+//     let bookName = "Book" + i;
+//     let author = "Author" + i;
+//     let pages = i * 100;
+//     let book = new Book(bookName, author, pages);
+//     myLibrary.push(book);
+// }
 
 // Dummy data ends
 
@@ -42,6 +42,8 @@ function createBook () {
 }
 
 function displayBooks() {
+    const bookNodeList = document.querySelectorAll(".book-card");
+    bookNodeList.forEach((node) => node.remove());
     myLibrary.forEach(showBooks);
 }
 
@@ -73,7 +75,7 @@ function showBooks(book) {
     
 }
 
-displayBooks();
+// displayBooks();
 
 //  opens addnewbook form
 const newBookBtn = document.getElementById("new-book-btn");
@@ -89,4 +91,42 @@ function showAddBookForm() {
     } else {
         formDiv.hidden = false;
     }
+}
+
+// add new book thorough from
+const form = document.querySelector(".add-book-form");
+
+form.addEventListener('submit', addBook);
+// addBookBtn.addEventListener('click', (e) => {
+//     console.log(e.target);
+// });
+
+function addBook(event) {
+    let bookName = document.getElementById("book_name").value;
+    let bookAuthor = document.getElementById("book_author").value;
+    let bookPages = document.getElementById("book_pages").value;
+    
+    // get values form radio buttons
+    let isReadList = document.getElementsByName("isRead");
+    let isReadValue;
+    for (let i in isReadList) {
+        if(i.checked){
+            isReadValue = i.value;
+        }
+    }
+
+    let book = new Book(bookName, bookAuthor, bookPages);
+    myLibrary.push(book);
+
+    displayBooks();
+    event.preventDefault();
+
+    resetForm();
+}
+
+function resetForm (){
+    document.getElementById("book_name").value = "";
+    document.getElementById("book_author").value = "";
+    document.getElementById("book_pages").value = "";
+
 }
