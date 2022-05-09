@@ -77,9 +77,8 @@ function showBooks(book) {
 
 // displayBooks();
 
-//  opens addnewbook form
+//  opens addnewbook form and closes if open
 const newBookBtn = document.getElementById("new-book-btn");
-// const formDiv = document.querySelector(".add-book-form");
 
 newBookBtn.addEventListener('click', showAddBookForm)
 
@@ -92,6 +91,10 @@ function showAddBookForm() {
         formDiv.hidden = false;
     }
 }
+
+// closes from, through showAddBookFrom() function toggle.
+const closeFormBtn = document.getElementById("form-close-btn");
+closeFormBtn.addEventListener('click', showAddBookForm);
 
 // add new book thorough from
 const form = document.querySelector(".add-book-form");

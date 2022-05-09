@@ -21,8 +21,8 @@ div.button {
 
 form {
     padding-top: 2rem;
-    /* border: 1px solid red; */
-    height: 400px;
+    /* border: 1px solid rgb(255, 192, 111); */
+    height: 200px;
     /* width: 400px; */
     display: grid;
     grid-template-columns: 1fr;
@@ -38,6 +38,7 @@ form > div {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 input {
