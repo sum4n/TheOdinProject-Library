@@ -75,10 +75,18 @@ function showBooks(book) {
 
 displayBooks();
 
+//  opens addnewbook form
 const newBookBtn = document.getElementById("new-book-btn");
+// const formDiv = document.querySelector(".add-book-form");
 
-newBookBtn.addEventListener('click', showAddBookForm);
+newBookBtn.addEventListener('click', showAddBookForm)
 
 function showAddBookForm() {
-    //
+    const formDiv = document.querySelector(".add-book-form");
+    
+    if(formDiv.hidden == false) {
+        formDiv.hidden = true;
+    } else {
+        formDiv.hidden = false;
+    }
 }
