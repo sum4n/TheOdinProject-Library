@@ -31,3 +31,31 @@ getting "radio button value" was tricky. getElementsByName() and looping
 over the result with ".checked" did the trick.
 resetForm() resets the form after the form has been validated, and data
 send to create a book.
+
+---------------------------------
+New book button:
+When new book button is clicked from is shows and new book button gets
+hidden. From Close button closes the form and displayes the New Book
+button.
+Logic is simple at ShowAddBookForm() function.
+
+---------------------------------
+Add book notification message:
+Had to create a empty <p>. Filled it with
+notification message through js. Close From button removes the message.
+Notifican message stays until close form button is pressed as I did not 
+yet learn to make it disapper after certain time (Though I could just google it. Let's see if it is in the later lessons.)
+
+----------------------------------
+Remove book icon on book cards:
+Hovering over the book cards shows the book remove icon.
+Used absolute position to position the icon there. Cards need to have 
+position relative for this. It was tricky to display the icon only when hovered over the card. Found soulution on the web.
+.book-card:hover .close-icon {
+    display:block;
+}
+Remove icon's css was easy.
+
+----------------------------------
+Make remove book icon to remove book:
+
