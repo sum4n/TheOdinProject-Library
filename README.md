@@ -72,3 +72,10 @@ Done with removeBook() function.
 After removing form myLibrary array dom needs to get updated with displayBooks().
 displayBooks() calls removeBook() function to update 'close icon's' nodelist.
 
+------------------------------------
+Button to change read status:
+Button to show read status:
+getting read value addBook() function.
+
+Added Read button with showBooks() function.
+It is same like 'cross icon' functionality.

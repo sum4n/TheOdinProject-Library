@@ -1,19 +1,27 @@
 let myLibrary = [];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, isRead) {
     // the constructor...
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.isRead = true;
+    this.isRead = isRead;
 }
 
+Book.prototype.toggleRead = function() {
+    if(this.isRead == "Read"){
+        this.isRead = "Not Read";
+    } else {
+        this.isRead = "Read";
+    }
+}
 
 // Dummy data
 let bookName = "Angels & Demons";
 let author = "Dan Brown";
 let pages = 768;
-let book = new Book(bookName, author, pages);
+let isRead = "Read";
+let book = new Book(bookName, author, pages, isRead);
 myLibrary.push(book);
 // Dummy data ends
 
@@ -25,6 +33,7 @@ function displayBooks() {
     bookIndex = 0;
     myLibrary.forEach(showBooks);
     removeBook();
+    toggleReadValue();
 }
 
 function showBooks(book) {
@@ -53,15 +62,21 @@ function showBooks(book) {
 
      // data-attribute for close button
     crossIcon.dataset.index = bookIndex;
-    bookIndex += 1;
+
+    const isReadBtn = document.createElement("button");
+    isReadBtn.classList.add("read-btn");
+    isReadBtn.textContent = book.isRead;
+    isReadBtn.dataset.index = bookIndex;
 
     bookCardDiv.appendChild(bookTitleP);
     bookCardDiv.appendChild(bookAuthorP);
     bookCardDiv.appendChild(bookPagesP);
     bookCardDiv.appendChild(crossIcon);
+    bookCardDiv.appendChild(isReadBtn);
 
     mainContainer.appendChild(bookCardDiv);
     
+    bookIndex += 1;
 }
 
 displayBooks();
@@ -102,14 +117,16 @@ function addBook(event) {
     
     // get values form radio buttons
     let isReadList = document.getElementsByName("isRead");
-    let isReadValue;
-    for (let i in isReadList) {
-        if(i.checked){
-            isReadValue = i.value;
+    
+    let readValue;
+    for(let i = 0; i < isReadList.length; i++){
+        if (isReadList[i].checked){
+            readValue = isReadList[i].value;
+            // console.log(readValue);
         }
     }
 
-    let book = new Book(bookName, bookAuthor, bookPages);
+    let book = new Book(bookName, bookAuthor, bookPages, readValue);
     myLibrary.push(book);
 
     displayBooks();
@@ -143,6 +160,16 @@ function removeBook () {
     
     closeIcons.forEach(icon => icon.addEventListener('click', () => {
         myLibrary.splice(icon.dataset.index, 1);
+        displayBooks();
+    }));
+}
+
+
+function toggleReadValue() {
+    const readBtns = document.querySelectorAll(".read-btn");
+
+    readBtns.forEach(btn => btn.addEventListener('click', () => {
+        myLibrary[btn.dataset.index].toggleRead();
         displayBooks();
     }));
 }
