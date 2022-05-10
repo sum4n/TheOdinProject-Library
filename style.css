@@ -5,7 +5,7 @@
 
 .book-message {
     text-align: center;
-    background-color: rgba(253, 111, 16, 0.247);
+    background-color: rgba(255, 193, 111, 0.527);
 }
 
 button {
@@ -32,21 +32,19 @@ div.button {
 }
 
 form {
-    padding-top: 2rem;
-    border-bottom: 1px solid rgb(255, 192, 111);
+    border-bottom: 2px solid rgb(255, 192, 111);
     height: 300px;
     /* width: 400px; */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
     justify-items: center;
 }
 
 form > div {
     /* border: 1px solid red; */
     width: 600px;
-    /* height: 40px; */
+    height: 30px;
     display: flex;
     justify-content: center;
     /* align-items: flex-start; */
@@ -73,6 +71,13 @@ label {
     /* border: 1px solid blue; */
 }
 
+.radio-div {
+    /* border: 1px solid black; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
 #radio label {
     width: 80px;
 }
@@ -88,7 +93,7 @@ label {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     justify-items: center;
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .book-card, .static-card {

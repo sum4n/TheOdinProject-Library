@@ -65,7 +65,7 @@ function showBooks(book) {
 
     const bookPagesP = document.createElement("p");
     bookPagesP.classList.add("pages");
-    bookPagesP.textContent = book.pages;
+    bookPagesP.textContent = `Pages: ${book.pages}`;
 
     // adding the cross icon
     const crossIcon = document.createElement("img");
