@@ -9,44 +9,23 @@ function Book(title, author, pages) {
 }
 
 
-function addBookToLibrary() {
-    // do stuff here
-    let bookName = createBook();
-    myLibrary.push(bookName);
-    console.table(myLibrary);
-}
-
 // Dummy data
-
-// for (let i = 1; i <= 9; i++){
-//     let bookName = "Book" + i;
-//     let author = "Author" + i;
-//     let pages = i * 100;
-//     let book = new Book(bookName, author, pages);
-//     myLibrary.push(book);
-// }
-
+let bookName = "Angels & Demons";
+let author = "Dan Brown";
+let pages = 768;
+let book = new Book(bookName, author, pages);
+myLibrary.push(book);
 // Dummy data ends
 
-// myLibrary.forEach( (book) => console.log(book.title, book.author, book.pages));
-// console.table(myLibrary);
-
-function createBook () {
-    let bookTitle = prompt("Title: ");
-    let bookAuthor = prompt("Author: ");
-    let bookPages = prompt("Pages: ")
-
-    let book = new Book(bookTitle, bookAuthor, bookPages);
-
-    return book;
-}
-
+let bookIndex = 0; // for data-attribute index of cross icon
 function displayBooks() {
     const bookNodeList = document.querySelectorAll(".book-card");
     bookNodeList.forEach((node) => node.remove());
+    // resets the bookIndex as bookcards get reset
+    bookIndex = 0;
     myLibrary.forEach(showBooks);
+    removeBook();
 }
-
 
 function showBooks(book) {
 
@@ -72,6 +51,10 @@ function showBooks(book) {
     crossIcon.classList.add("close-icon");
     crossIcon.setAttribute("src", "./images/close-circle.png");
 
+     // data-attribute for close button
+    crossIcon.dataset.index = bookIndex;
+    bookIndex += 1;
+
     bookCardDiv.appendChild(bookTitleP);
     bookCardDiv.appendChild(bookAuthorP);
     bookCardDiv.appendChild(bookPagesP);
@@ -81,7 +64,7 @@ function showBooks(book) {
     
 }
 
-// displayBooks();
+displayBooks();
 
 //  opens addnewbook form and closes if open
 const newBookBtn = document.getElementById("new-book-btn");
@@ -111,9 +94,6 @@ closeFormBtn.addEventListener('click', () => {
 const form = document.querySelector(".add-book-form");
 
 form.addEventListener('submit', addBook);
-// addBookBtn.addEventListener('click', (e) => {
-//     console.log(e.target);
-// });
 
 function addBook(event) {
     let bookName = document.getElementById("book_name").value;
@@ -155,4 +135,14 @@ function writeBookAddedMessage (bookName) {
 function resetBookAddedMessage () {
     let messageP = document.querySelector(".book-message");
     messageP.textContent = "";
+}
+
+
+function removeBook () {
+    let closeIcons = document.querySelectorAll(".close-icon");
+    
+    closeIcons.forEach(icon => icon.addEventListener('click', () => {
+        myLibrary.splice(icon.dataset.index, 1);
+        displayBooks();
+    }));
 }

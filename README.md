@@ -58,4 +58,17 @@ Remove icon's css was easy.
 
 ----------------------------------
 Make remove book icon to remove book:
+Set data attribute of 'cross icon' through js.
+First bookIndex=0 is defined at global.
+showBooks() function gives 'cross icon' dataset as books' index.
+crossIcon.dataset.index = bookIndex;
+    bookIndex += 1;
+
+Reset bookIndex=0 at displayBooks() because after adding a book, all the
+books are removed from dom and get placed again on the dom.
+
+Clicking 'cross icon' removes book:
+Done with removeBook() function.
+After removing form myLibrary array dom needs to get updated with displayBooks().
+displayBooks() calls removeBook() function to update 'close icon's' nodelist.
 
