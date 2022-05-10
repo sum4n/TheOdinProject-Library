@@ -67,9 +67,15 @@ function showBooks(book) {
     bookPagesP.classList.add("pages");
     bookPagesP.textContent = book.pages;
 
+    // adding the cross icon
+    const crossIcon = document.createElement("img");
+    crossIcon.classList.add("close-icon");
+    crossIcon.setAttribute("src", "./images/close-circle.png");
+
     bookCardDiv.appendChild(bookTitleP);
     bookCardDiv.appendChild(bookAuthorP);
     bookCardDiv.appendChild(bookPagesP);
+    bookCardDiv.appendChild(crossIcon);
 
     mainContainer.appendChild(bookCardDiv);
     

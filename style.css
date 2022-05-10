@@ -5,6 +5,7 @@
 
 .book-message {
     text-align: center;
+    background-color: rgba(253, 111, 16, 0.247);
 }
 
 button {
@@ -85,10 +86,40 @@ label {
 }
 
 .book-card, .static-card {
+    padding-top: 1rem;
     width: 200px;
     height: 300px;
     /* border: 1px solid black; */
     text-align: center;
-
+    border-radius: 4px;
     box-shadow: 0px 0px 8px 1px rgb(201, 201, 201);
+
+    position: relative; /* for close button placement */
+}
+
+.book-card:hover, .static-card:hover {
+    box-shadow: 0px 0px 8px 8px rgb(255, 192, 111);
+}
+
+.static-card:hover  .close-icon, .book-card:hover .close-icon {
+    display:block;
+    /* box-shadow: 0px 0px 8px 1px rgb(99, 99, 99); */
+}
+
+.close-icon {
+    /* border: 1px solid black; */
+    width: 20px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    display: none;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 2px rgb(255, 192, 111);
+    /* width: 24px; */
+}
+
+.close-icon:hover {
+    /* background-color: rgba(255, 193, 111, 0.733); */
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 2px rgb(197, 47, 47);
 }
