@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.book-message {
+    text-align: center;
+}
+
 button {
     border: none;
     border-radius: 6px;

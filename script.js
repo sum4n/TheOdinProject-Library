@@ -96,7 +96,10 @@ function showAddBookForm() {
 
 // closes from, through showAddBookFrom() function toggle.
 const closeFormBtn = document.getElementById("form-close-btn");
-closeFormBtn.addEventListener('click', showAddBookForm);
+closeFormBtn.addEventListener('click', () => {
+    showAddBookForm();
+    resetBookAddedMessage(); // removes the message on form close.
+});
 
 // add new book thorough from
 const form = document.querySelector(".add-book-form");
@@ -126,6 +129,8 @@ function addBook(event) {
     displayBooks();
     event.preventDefault();
 
+    writeBookAddedMessage(bookName);
+
     resetForm();
 }
 
@@ -134,4 +139,14 @@ function resetForm (){
     document.getElementById("book_author").value = "";
     document.getElementById("book_pages").value = "";
 
+}
+
+function writeBookAddedMessage (bookName) {
+    let messageP = document.querySelector(".book-message");
+    messageP.textContent = `${bookName} is added to your library.`;
+}
+
+function resetBookAddedMessage () {
+    let messageP = document.querySelector(".book-message");
+    messageP.textContent = "";
 }
