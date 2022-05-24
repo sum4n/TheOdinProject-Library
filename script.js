@@ -1,18 +1,18 @@
 let myLibrary = [];
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
 
-function Book(title, author, pages, isRead) {
-    // the constructor...
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-}
-
-Book.prototype.toggleRead = function() {
-    if(this.isRead == "Read"){
-        this.isRead = "Not Read";
-    } else {
-        this.isRead = "Read";
+    toggleRead() {
+        if(this.isRead == "Read") {
+            this.isRead = "Not Read";
+        } else {
+            this.isRead = "Read";
+        }
     }
 }
 
